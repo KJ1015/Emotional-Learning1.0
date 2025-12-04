@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單元二：表達情緒 | 我的情緒，我來懂</title>
+    
+    <style>
+        /* 基礎設置 - 完全沿用 unit1.html 的樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        :root {
+            --color-primary: #79A3B1; 
+            --color-secondary: #C3E0E5; 
+            --color-text: #333333;
+            --color-white: #FFFFFF;
+            --color-accent: #E8B996; 
+            --color-background: #F9F9F9;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ==== 導覽列 (HEADER) ==== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 5px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        /* .active 用來標示當前頁面 */
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        /* ==== 頁面主要內容區塊 (MAIN) ==== */
+        .unit-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .unit-header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .unit-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .unit-image-visual {
+            margin-bottom: 40px;
+            overflow: hidden; 
+            border-radius: 8px;
+        }
+
+        .unit-image-visual img {
+            display: block;
+            /* 假設圖片寬度為 50% 較為合適，可自行調整 */
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        }
+
+
+        /* 內容卡片樣式 */
+        .lesson-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--color-accent); 
+        }
+        
+        .lesson-card h2 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 5px;
+        }
+
+        .lesson-card p {
+            margin-bottom: 15px;
+        }
+
+        .lesson-card ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .lesson-card ul li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            padding-left: 30px; 
+        }
+        
+        .lesson-card ul li::before {
+            /* 沿用 unit1 的 💡 圖示 */
+            content: "💡"; 
+            position: absolute;
+            left: 0; 
+            color: var(--color-accent);
+        }
+
+        /* 導向下一單元的按鈕 */
+        .next-unit-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* CTA 按鈕通用樣式 */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d1a585; 
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background-color: var(--color-text);
+            color: var(--color-white);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="1.png" alt="我的情緒，我來懂">
+                我的情緒，我來懂
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="unit1.html">單元一：認識</a></li>
+                <li class="current"><a href="unit2.html" class="active">單元二：表達</a></li> 
+                <li><a href="unit3.html">單元三：管理</a></li>
+                <li><a href="unit4.html">單元四：同理</a></li>
+                <li><a href="about.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="unit-content">
+        <section class="unit-header">
+            <h1>單元二：表達情緒</h1>
+            <p>學會健康地說出感受，是建立良好關係的第一步。</p>
+        </section>
+        
+        <section class="unit-image-visual">
+             <img src="3.png" alt="青少年進行溝通與表達的意象圖">
+        </section>
+
+        <article class="lesson-card">
+            <h2>1. 為什麼要表達？壓抑與爆發的兩極</h2>
+            <p>你是否常覺得「算了，不要講」，結果忍到最後大爆發？情緒像水流，堵住它只會造成更大的災害。健康的表達，是為情緒找到一個安全的出口。</p>
+            <ul>
+                <li>壓抑情緒： 暫時沒事，但會累積成壓力，導致身心俱疲或突然爆發。</li>
+                <li>情緒爆發： 傷害人際關係，且無法真正解決問題，事後常伴隨懊悔。</li>
+                <li>健康表達： 在情緒還能控制時溝通，讓對方理解你的狀態與需求。</li>
+            </ul>
+        </article>
+
+        <article class="lesson-card">
+            <h2>2. 「我訊息」溝通法：不指責的表達</h2>
+            <p>當我們感到受傷或生氣時，很容易說出「你...」開頭的指責句，這會讓對方立刻豎起防衛心。試著改用「我...」開頭，專注在陳述自己的感受。</p>
+            <p><strong>公式：當...（客觀事實） + 我感到...（我的感受） + 因為...（我的需求/想法）</strong></p>
+            <ul>
+                <li>NG 指責句：「你每次都已讀不回，到底在想什麼！」</li>
+                <li>健康的「我訊息」：「當我看到訊息被已讀，但沒有收到回覆時（事實），我感到有點焦慮和被忽略（感受），因為我擔心你是不是出事了，或是我說錯話（想法）。」</li>
+            </ul>
+        </article>
+        
+        <article class="lesson-card">
+            <h2>📝 課後練習：情境改寫</h2>
+            <p>回想一個最近讓你感到不舒服的情境。試著把當時想說的「指責句」（例如：你怎麼這麼吵！）改寫成一句完整的「我訊息」。</p>
+        </article>
+
+        <section class="next-unit-cta">
+            <p>學會表達後，我們來學習如何管理更強烈的情緒。</p>
+            <a href="unit3.html" class="cta-button">進入 單元三：管理情緒 →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 我的情緒，我來懂 </p>
+    </footer>
+</body>
+</html>
+```

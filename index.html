@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的情緒，我來懂</title>
+    
+    <style>
+        /* 基本重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        :root {
+            /* 色彩 */
+            --color-primary: #79A3B1; /* 淺藍/灰藍 - 穩定 */
+            --color-secondary: #C3E0E5; /* 極淺藍 - 背景/點綴 */
+            --color-text: #333333;
+            --color-white: #FFFFFF;
+            --color-accent: #E8B996; /* 暖橘/米色 - 按鈕 */
+            --color-background: #F9F9F9; /* 背景米白 */
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* 導覽列 (整合原則) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 深度/空間 */
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--color-primary);
+            
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-primary);
+        }
+
+        /* 主視覺區塊 (對比 & 深度) */
+        .hero {
+            display: flex;
+            align-items: center;
+            padding: 80px 5%;
+            background-color: var(--color-secondary); /* 與背景色形成顏色對比 */
+        }
+
+        .hero-image {
+            flex: 1;
+            min-height: 300px;
+            background-color: var(--color-primary);
+            border-radius: 8px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1); /* 深度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--color-white);
+            font-style: italic;
+            margin-right: 5%;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: var(--color-primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-accent); /* 與背景、主要色形成色彩對比 */
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d1a585; 
+        }
+
+        /* 核心單元區塊 (接近 & 重複 - 組織原則) */
+        .units {
+            padding: 60px 5%;
+            text-align: center;
+        }
+
+        .units h2 {
+            font-size: 2em;
+            margin-bottom: 40px;
+            color: var(--color-primary);
+        }
+
+        .unit-cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .card {
+            flex: 1;
+            padding: 25px;
+            background-color: var(--color-white);
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* 深度 */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            color: var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .card a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background-color: var(--color-text);
+            color: var(--color-white);
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">我的情緒，我來懂</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="unit1.html">單元一：認識</a></li>
+                <li><a href="unit2.html">單元二：表達</a></li>
+                <li><a href="unit3.html">單元三：管理</a></li>
+                <li><a href="unit4.html">單元四：同理</a></li>
+                <li><a href="about.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+<main class="hero">
+    <div class="hero-image">
+        <img src="1.png" alt="青少年思考與情緒的意象圖" style="width: 50%; height: 50%; object-fit: cover; border-radius: 8px;">
+        
+    </div>
+    <div class="hero-content">
+        <h1>擁抱你的內在世界</h1>
+        </div>
+</main>
+
+    <section class="units">
+        <h2>四大核心單元</h2>
+        <div class="unit-cards">
+            <div class="card">
+                <h3>單元一：認識情緒</h3>
+                <p>情緒詞彙與功能，理解情緒背後的訊息。</p>
+                <a href="unit1.html">了解更多</a>
+            </div>
+            <div class="card">
+                <h3>單元二：表達情緒</h3>
+                <p>學習健康表達，避免壓抑或爆發。</p>
+                <a href="unit2.html">了解更多</a>
+            </div>
+            <div class="card">
+                <h3>單元三：管理情緒</h3>
+                <p>實用調適技巧，應對壓力和衝突。</p>
+                <a href="unit3.html">了解更多</a>
+            </div>
+            <div class="card">
+                <h3>單元四：同理他人</h3>
+                <p>擴展到人際，理解他人視角與感受。</p>
+                <a href="unit4.html">了解更多</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy;  我的情緒，我來懂。</p>
+    </footer>
+</body>
+
+</html>

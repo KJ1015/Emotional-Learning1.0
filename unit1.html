@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單元一：認識情緒 | 我的情緒，我來懂</title>
+    
+    <style>
+        /* 基礎設置 - 無需變動 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        :root {
+            --color-primary: #79A3B1; 
+            --color-secondary: #C3E0E5; 
+            --color-text: #333333;
+            --color-white: #FFFFFF;
+            --color-accent: #E8B996; 
+            --color-background: #F9F9F9;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ==== 導覽列 (HEADER) 優化 ==== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary); /* 讓文字顏色與主題色一致 */
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 5px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        /* ==== 頁面主要內容區塊 (MAIN) ==== */
+        .unit-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .unit-header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .unit-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        /* **新增：單元圖片視覺區塊** */
+        .unit-image-visual {
+            margin-bottom: 40px;
+            overflow: hidden; /* 確保圓角效果 */
+            border-radius: 8px;
+            
+        }
+
+        .unit-image-visual img {
+            display: block;
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        }
+
+
+        /* 內容卡片樣式 */
+        .lesson-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--color-accent); 
+        }
+        
+        .lesson-card h2 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 5px;
+        }
+
+        .lesson-card ul {
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 15px;
+        }
+        
+        .lesson-card ul li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            padding-left: 30px; 
+        }
+        
+        .lesson-card ul li::before {
+            content: "💡"; 
+            position: absolute;
+            left: 0; 
+            color: var(--color-accent);
+        }
+
+        /* 導向下一單元的按鈕 */
+        .next-unit-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* CTA 按鈕通用樣式 */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d1a585; 
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background-color: var(--color-text);
+            color: var(--color-white);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="1.png" 
+                     alt="我的情緒，我來懂">
+                我的情緒，我來懂
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li class="current"><a href="unit1.html" class="active">單元一：認識</a></li> 
+                <li><a href="unit2.html">單元二：表達</a></li>
+                <li><a href="unit3.html">單元三：管理</a></li>
+                <li><a href="unit4.html">單元四：同理</a></li>
+                <li><a href="about.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="unit-content">
+        <section class="unit-header">
+            <h1>單元一：認識情緒 </h1>
+            <p>了解情緒不是敵人，而是內建的訊息系統！</p>
+        </section>
+        
+        <section class="unit-image-visual">
+             <img src="2.png" alt="青少年思考與情緒的意象圖">
+        </section>
+
+
+        <article class="lesson-card">
+            <h2>1. 你的情緒羅盤：情緒的四大功能</h2>
+            <p>情緒的存在不是來「找碴」的，它們是我們與世界溝通的工具。了解它們在告訴你什麼，是情緒智能的起點。</p>
+            <ul>
+                <li>溝通訊息： 憤怒可能是底線被侵犯；恐懼可能是需要保護。</li>
+                <li>激勵行動： 焦慮促使你準備考試；快樂讓你持續做某件事。</li>
+                <li>人際連結： 悲傷讓人知道你需要支持；同理心拉近彼此距離。</li>
+                <li>自我保護： 厭惡讓你遠離潛在的威脅或不好的食物。</li>
+            </ul>
+        </article>
+
+        <article class="lesson-card">
+            <h2>2. 情緒詞彙庫：從「不爽」到精準表達</h2>
+            <p>當你只會用「難過」或「生氣」時，你很難處理細微的感受。讓我們擴充詞彙，更精準地識別內在的狀態。</p>
+            <p>試著將「難過」升級為：</p>
+            <ul>
+                <li>渴望： (想念某人或某物)</li>
+                <li>失落： (失去重要東西後的空虛感)</li>
+                <li>沮喪： (努力沒有得到回報的挫敗感)</li>
+            </ul>
+            <p>試著將「生氣」升級為：</p>
+            <ul>
+                <li>惱怒： (輕微的不耐煩)</li>
+                <li>憤慨： (覺得不公平、正義被違背)</li>
+                <li>被侵犯： (自己的權益或界線被跨越)</li>
+            </ul>
+        </article>
+        
+        <article class="lesson-card">
+            <h2>📝 課後練習：我的情緒日誌</h2>
+            <p>從今天開始，嘗試記錄你每天最強烈的兩個情緒。不要只寫「難過」，而是試著用三個字以上的詞彙來描述它（例如：「被忽視的孤單」、「達成目標的喜悅」）。</p>
+        </article>
+
+        <section class="next-unit-cta">
+            <p>當你學會了認識情緒，下一步就是學會表達它。</p>
+            <a href="unit2.html" class="cta-button">進入 單元二：表達情緒 →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 我的情緒，我來懂 </p>
+    </footer>
+</body>
+</html>

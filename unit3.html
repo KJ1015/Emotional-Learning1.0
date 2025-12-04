@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單元三：管理情緒 | 我的情緒，我來懂</title>
+    
+    <style>
+        /* 基礎設置 - 完全沿用 unit1.html 的樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        :root {
+            --color-primary: #79A3B1; 
+            --color-secondary: #C3E0E5; 
+            --color-text: #333333;
+            --color-white: #FFFFFF;
+            --color-accent: #E8B996; 
+            --color-background: #F9F9F9;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ==== 導覽列 (HEADER) ==== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 5px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        /* ==== 頁面主要內容區塊 (MAIN) ==== */
+        .unit-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .unit-header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .unit-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .unit-image-visual {
+            margin-bottom: 40px;
+            overflow: hidden; 
+            border-radius: 8px;
+        }
+
+        .unit-image-visual img {
+            display: block;
+            width: 50%; /* 沿用 unit1/2 的圖片寬度 */
+            height: auto;
+            object-fit: cover;
+        }
+
+
+        /* 內容卡片樣式 */
+        .lesson-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--color-accent); 
+        }
+        
+        .lesson-card h2 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 5px;
+        }
+
+        .lesson-card p {
+            margin-bottom: 15px;
+        }
+
+        .lesson-card ul {
+            list-style: none;
+            padding-left: 0; /* 重置 ul 內縮，交給 li 處理 */
+            margin-top: 15px;
+        }
+        
+        .lesson-card ul li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            padding-left: 30px; /* 預留給 💡 的空間 */
+        }
+        
+        .lesson-card ul li::before {
+            content: "💡"; /* 預設圖示 */
+            position: absolute;
+            left: 0; 
+            color: var(--color-accent);
+        }
+
+        /* * **新增樣式** * 為了 unit3 的 🔴 🟡 🟢 圖示
+         * 覆蓋 .lesson-card ul li 的預設樣式 
+        */
+        .lesson-card ul.custom-icons li::before {
+            content: none; /* 移除預設的 💡 */
+        }
+        .lesson-card ul.custom-icons li {
+            padding-left: 0; /* 移除 💡 的內縮 */
+            display: flex; /* 讓圖示和文字對齊 */
+            align-items: flex-start;
+        }
+        .lesson-card ul.custom-icons .icon {
+            display: inline-block;
+            width: 30px; /* 給圖示一個固定寬度，使其對齊 */
+            text-align: left;
+            font-size: 1.1em; /* 讓圖示稍大一點 */
+            line-height: 1.6; /* 對齊文字行高 */
+        }
+        .lesson-card ul.custom-icons .icon-text {
+            flex: 1; /* 讓文字佔滿剩餘空間 */
+        }
+        /* (新增樣式結束) */
+
+
+        /* 導向下一單元的按鈕 */
+        .next-unit-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* CTA 按鈕通用樣式 */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d1a585; 
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background-color: var(--color-text);
+            color: var(--color-white);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="1.png" alt="我的情緒，我來懂">
+                我的情緒，我來懂
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="unit1.html">單元一：認識</a></li>
+                <li><a href="unit2.html">單元二：表達</a></li>
+                <li class="current"><a href="unit3.html" class="active">單元三：管理</a></li> 
+                <li><a href="unit4.html">單元四：同理</a></li>
+                <li><a href="about.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="unit-content">
+        <section class="unit-header">
+            <h1>單元三：管理情緒</h1>
+            <p>當情緒來敲門，你可以選擇如何回應。</p>
+        </section>
+        
+        <section class="unit-image-visual">
+             <img src="4.png" alt="平靜心靈的意象圖">
+        </section>
+
+        <article class="lesson-card">
+            <h2>1. 情緒紅綠燈：暫停與選擇</h2>
+            <p>當強烈情緒（尤其是憤怒）來襲時，想像一個紅綠燈，給自己一個緩衝的機會，避免衝動反應。</p>
+            <ul class="custom-icons">
+                <li>
+                    <span class="icon">🔴</span>
+                    <span class="icon-text"><strong>紅燈 (暫停)：</strong>停止任何行動或言語。深呼吸，告訴自己「先停下來」。</span>
+                </li>
+                <li>
+                    <span class="icon">🟡</span>
+                    <span class="icon-text"><strong>黃燈 (思考)：</strong>想想現在是什麼情緒？我為什麼會有這種感覺？有哪些選擇？</span>
+                </li>
+                <li>
+                    <span class="icon">🟢</span>
+                    <span class="icon-text"><strong>綠燈 (行動)：</strong>選擇一個最健康、最有建設性的方式來回應。</span>
+                </li>
+            </ul>
+        </article>
+
+        <article class="lesson-card">
+            <h2>2. 呼吸的魔法：找回平靜的捷徑</h2>
+            <p>呼吸是我們隨身攜帶的「情緒調節器」。當感到焦慮或緊張時，專注於呼吸可以迅速讓身心平靜下來。試試看「4-4-4-4 方塊呼吸法」。</p>
+            <ul class="custom-icons">
+                <li>
+                    <span class="icon">1️⃣</span>
+                    <span class="icon-text">慢慢吸氣，從1數到4。</span>
+                </li>
+                <li>
+                    <span class="icon">2️⃣</span>
+                    <span class="icon-text">屏住氣息，從1數到4。</span>
+                </li>
+                <li>
+                    <span class="icon">3️⃣</span>
+                    <span class="icon-text">慢慢吐氣，從1數到4。</span>
+                </li>
+                <li>
+                    <span class="icon">4️⃣</span>
+                    <span class="icon-text">暫停呼吸，從1數到4。重複數次。</span>
+                </li>
+            </ul>
+        </article>
+        
+        <article class="lesson-card">
+            <h2>📝 課後練習：我的冷靜計畫</h2>
+            <p>事先想好策略，能幫助你在情緒高漲時更快地冷靜下來。寫下三件能讓你感覺好一點的事情（例如：聽一首喜歡的歌、去散步、跟寵物玩）。</p>
+            </article>
+
+        <section class="next-unit-cta">
+            <p>當我們能安頓好自己，就有更多的空間去理解他人。</p>
+            <a href="unit4.html" class="cta-button">進入 單元四：同理他人 →</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 我的情緒，我來懂 </p>
+    </footer>
+</body>
+</html>

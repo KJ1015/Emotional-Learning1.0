@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>單元四：同理他人 | 我的情緒，我來懂</title>
+    
+    <style>
+        /* 基礎設置 - 沿用 unit1/unit3 的樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', Arial, sans-serif;
+        }
+
+        :root {
+            --color-primary: #79A3B1; 
+            --color-secondary: #C3E0E5; 
+            --color-text: #333333;
+            --color-white: #FFFFFF;
+            --color-accent: #E8B996; 
+            --color-background: #F9F9F9;
+        }
+
+        body {
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        /* ==== 導覽列 (HEADER) ==== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: var(--color-white);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .logo img {
+            height: 30px;
+            margin-right: 5px; 
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--color-text);
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--color-primary);
+            font-weight: bold;
+        }
+        
+        /* ==== 頁面主要內容區塊 (MAIN) ==== */
+        .unit-content {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 5%;
+        }
+
+        .unit-header {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .unit-header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .unit-image-visual {
+            margin-bottom: 40px;
+            overflow: hidden; 
+            border-radius: 8px;
+        }
+
+        .unit-image-visual img {
+            display: block;
+            width: 50%; /* 沿用 unit1/2/3 的圖片寬度 */
+            height: auto;
+            object-fit: cover;
+        }
+
+
+        /* 內容卡片樣式 */
+        .lesson-card {
+            background-color: var(--color-white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--color-accent); 
+        }
+        
+        .lesson-card h2 {
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 5px;
+        }
+
+        .lesson-card p {
+            margin-bottom: 15px;
+        }
+
+        /* 預設 ul 樣式 (for 💡) */
+        .lesson-card ul {
+            list-style: none;
+            padding-left: 0; /* 重置 ul 內縮，交給 li 處理 */
+            margin-top: 15px;
+        }
+        
+        .lesson-card ul li {
+            position: relative;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            padding-left: 30px; /* 預留給 💡 的空間 */
+        }
+        
+        .lesson-card ul li::before {
+            content: "💡"; /* 預設圖示 */
+            position: absolute;
+            left: 0; 
+            color: var(--color-accent);
+        }
+
+        /* * (沿用 unit3 的樣式) 
+         * 為了 unit3/4 的 🔴 🤔 等自訂圖示
+         * 覆蓋 .lesson-card ul li 的預設樣式 
+        */
+        .lesson-card ul.custom-icons li::before {
+            content: none; /* 移除預設的 💡 */
+        }
+        .lesson-card ul.custom-icons li {
+            padding-left: 0; /* 移除 💡 的內縮 */
+            display: flex; /* 讓圖示和文字對齊 */
+            align-items: flex-start;
+        }
+        .lesson-card ul.custom-icons .icon {
+            display: inline-block;
+            width: 30px; /* 給圖示一個固定寬度，使其對齊 */
+            text-align: left;
+            font-size: 1.1em; 
+            line-height: 1.6; /* 對齊文字行高 */
+        }
+        .lesson-card ul.custom-icons .icon-text {
+            flex: 1; /* 讓文字佔滿剩餘空間 */
+        }
+
+
+        /* 導向下一單元的按鈕 */
+        .next-unit-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* CTA 按鈕通用樣式 */
+        .cta-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #d1a585; 
+        }
+
+        /* 頁尾 */
+        footer {
+            text-align: center;
+            padding: 20px 5%;
+            background-color: var(--color-text);
+            color: var(--color-white);
+            font-size: 0.9em;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="1.png" alt="我的情緒，我來懂">
+                我的情緒，我來懂
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="unit1.html">單元一：認識</a></li>
+                <li><a href="unit2.html">單元二：表達</a></li>
+                <li><a href="unit3.html">單元三：管理</a></li>
+                 <li class="current"><a href="unit4.html" class="active">單元四：同理</a></li>
+                <li><a href="about.html">關於我們</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="unit-content">
+        <section class="unit-header">
+            <h1>單元四：同理他人</h1>
+            <p>走進他人的世界，建立更深刻的連結。</p>
+        </section>
+        
+        <section class="unit-image-visual">
+             <img src="5.png" alt="人際相關圖">
+        </section>
+
+        <article class="lesson-card">
+            <h2>1. 不只是聽見：積極聆聽的藝術</h2>
+            <p>同理心的第一步是真正地「聽」。這不只是用耳朵接收聲音，而是用心去理解對方想傳達的訊息和感受。</p>
+            <ul>
+                <li><strong>全神貫注：</strong>放下手機，關掉電視，給予對方完全的注意力。</li>
+                <li><strong>不打斷、不評判：</strong>讓對方完整地說完，先不要急著給建議或下結論。</li>
+                <li><strong>回應與確認：</strong>適時點頭，並用「所以你的意思是...」、「聽起來你覺得很...」來確認你是否理解正確。</li>
+            </ul>
+        </article>
+
+        <article class="lesson-card">
+            <h2>2. 穿上他的鞋：換位思考練習</h2>
+            <p>試著從對方的角度看事情，是同理心的核心。這不代表你需要同意他，而是去理解「為什麼他會這樣想/這樣感覺」。</p>
+            <p>當你和朋友意見不合時，可以問問自己：</p>
+            <ul class="custom-icons">
+                <li>
+                    <span class="icon">🤔</span>
+                    <span class="icon-text">在他的成長背景或經驗中，什麼可能讓他有這樣的看法？</span>
+                </li>
+                <li>
+                    <span class="icon">🤔</span>
+                    <span class="icon-text">他最在乎的是什麼？他是不是有什麼擔心或渴望？</span>
+                </li>
+                <li>
+                    <span class="icon">🤔</span>
+                    <span class="icon-text">如果我是他，我現在會有什麼感覺？</span>
+                </li>
+            </ul>
+        </article>
+        
+        <article class="lesson-card">
+            <h2>📝 課後練習：同理心地圖</h2>
+            <p>回想最近一次與家人或朋友的小摩擦。試著在紙上畫出對方當時可能的「想法」與「感受」。這個練習能幫助你跳脫自己的立場，看見更完整的畫面。</p>
+        </article>
+
+        <section class="next-unit-cta">
+            <p>恭喜你！完成了所有核心單元的學習。</p>
+            _            <a href="index.html" class="cta-button">完成學習，返回首頁</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 我的情緒，我來懂</p>
+    </footer>
+</body>
+</html>
